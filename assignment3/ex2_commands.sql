@@ -4,8 +4,7 @@
 -- Select all users ordered by the date at which they joined, new first
 SELECT *
 FROM `users`
-ORDER BY `users`.`created_at` DESC;
-
+ORDER BY `users`.`created_at` DESC; 
 -- Select only the newest user
 SELECT MAX(`created_at`)
 FROM `users`;
