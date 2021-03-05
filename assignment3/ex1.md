@@ -5,7 +5,7 @@ Use this markdown file to submit your prepared SQL statements for each problem.
 *Fill in your names and student numbers below:*
 
 ```
-<student_1_name> - <student_1_s-number>
+Lazaros Kogioumtzidis - s4109651
 Thijs Visee - s2982129
 ```
 
