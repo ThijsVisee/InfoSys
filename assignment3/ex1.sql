@@ -31,7 +31,7 @@ FOREIGN KEY (participant_id) REFERENCES participant(id) ON UPDATE CASCADE ON DEL
 CREATE TABLE `player` (
 `username` TEXT PRIMARY KEY, --Check here
 `joined_at` DATETIME,
-`xp_level` INTEGER NOT NULL,--Check here
+`xp_level` INTEGER NOT NULL, --Check here
 `participant_id` INTEGER NULL,
 FOREIGN KEY (participant_id) REFERENCES participant(id) ON UPDATE CASCADE ON DELETE CASCADE
 );
