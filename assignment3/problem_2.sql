@@ -124,22 +124,85 @@ ORDER BY `users`.`created_at` DESC;
 -- Select only the newest user
 SELECT`id`, `name`, `email`, MAX(`created_at`) FROM `users`;
 
--- 2.2 TODO: enter your name and email
+-- 2.2 TODO: enter your email
 INSERT INTO `users` (`name`, `email`) VALUES 
 ('Thijs Visee', 't.p.visee@student.rug.nl'),
-('Lazaros', 'email');
-SELECT *
+('Lazaros Kogioumtzidis', 'email');
+
+-- 2.3
+-- Add a workout
+INSERT INTO `workouts` (`user_id`)
+SELECT `users`.`id`
 FROM `users`
-ORDER BY `users`.`created_at` DESC; 
+WHERE `users`.`name` = 'Thijs Visee';
 
--- 2.3 TODO
+-- Add at least 2 exercises to the workout
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(NULL, 10, 2);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Deadlift',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
 
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(NULL, 24, NULL);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Squat',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
+
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(NULL, 24, NULL);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Pull Up',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
+
+-- Also for Partner
+INSERT INTO `workouts` (`user_id`)
+SELECT `users`.`id`
+FROM `users`
+WHERE `users`.`name` = 'Lazaros Kogioumtzidis';
+
+-- Add at least 2 exercises once again
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(NULL, 50, 60);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Bench Press',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
+
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(NULL, 24, 80);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Overhead Press',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
+
+INSERT INTO `exercise_metrics` (`duration`, `repetitions`, `weight`) VALUES
+(30, NULL, NULL);
+INSERT INTO `workout_exercises` (`workout_id`, `exercise_name`, `exercise_metric_id`) VALUES
+(
+	(SELECT MAX(`id`) FROM `workouts`),
+	'Running',
+	(SELECT MAX(`id`) FROM `exercise_metrics`)
+);
 
 -- 2.4
 SELECT `name`, `email`
 FROM `users`
 WHERE `users`.`email` LIKE '%.com'
-ORDER BY `users`.`email` ASC
+ORDER BY `users`.`email` ASC;
 
 
 -- 2.5
@@ -147,8 +210,7 @@ ORDER BY `users`.`email` ASC
 UPDATE `exercises`
 SET `name` = 'Barbell Bench Press'
 WHERE `name` LIKE 'Bench Press';
+
 -- Delete user JOE MAMMA
 DELETE FROM `users`
-WHERE `name` LIKE 'JOE MAMMA';
-
-SELECT * FROM `users`;
+WHERE `users`.`name` = 'Joe Mamma';
