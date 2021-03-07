@@ -40,7 +40,7 @@ CREATE TABLE `game_participants` (
   `game_id` INTEGER NOT NULL,
   `participant_id` INTEGER NOT NULL,
   PRIMARY KEY (`participant_id`,`game_id`),
-  FOREIGN KEY (`game_id`) REFERENCES `game`(`id`)
+  FOREIGN KEY (`game_id`) REFERENCES `games`(`id`)
       ON UPDATE CASCADE
       ON DELETE CASCADE,
   FOREIGN KEY (`participant_id`) REFERENCES `participants`(`id`)
@@ -145,3 +145,11 @@ CREATE TABLE `reports` (
   Assumption: a report is not read when submitted, updated to 'In Progress'
   when it is being read, and updated to 'Yes' when it is fully handled.
 */
+
+insert into participants (id,type,rank) values (5,'party',5);
+insert into games (id) values  (10);
+select * from participants;
+select * from games;
+insert into game_participants(game_id,participant_id) values (10,5);
+update games SET id = 15 WHERE id = 10;
+select * from participants;
