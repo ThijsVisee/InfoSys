@@ -1,4 +1,4 @@
-PRAGMA foreign_keys = ON; -- Foreign key constrains
+
 
 DROP TABLE IF EXISTS `reports`;
 DROP TABLE IF EXISTS `players`;
@@ -10,6 +10,9 @@ DROP TABLE IF EXISTS `parties`;
 DROP TABLE IF EXISTS `player_items`;
 DROP TABLE IF EXISTS `loot_items`;
 DROP TABLE IF EXISTS `game_results`;
+
+
+PRAGMA foreign_keys = ON; -- Foreign key constrains
 
 -- Loot Item Table (name, rarity)
 CREATE TABLE `loot_items` (
@@ -146,10 +149,3 @@ CREATE TABLE `reports` (
   when it is being read, and updated to 'Yes' when it is fully handled.
 */
 
-insert into participants (id,type,rank) values (5,'party',5);
-insert into games (id) values  (10);
-select * from participants;
-select * from games;
-insert into game_participants(game_id,participant_id) values (10,5);
-update games SET id = 15 WHERE id = 10;
-select * from participants;
