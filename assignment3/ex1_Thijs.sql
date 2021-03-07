@@ -15,5 +15,8 @@ CREATE TABLE `players` (
   `username` TEXT PRIMARY KEY UNIQUE,
 	`joined at` TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%S', 'now')),
   `xp_level` INTEGER DEFAULT 0,
-  `participant_id` FOREIGN KEY NULL DEFAULT NULL
+  `participant_id` NULL DEFAULT NULL,
+  FOREIGN KEY (`participant_id`) REFERENCES
+      `participant`(`id`)
+
 );
