@@ -101,41 +101,14 @@ FOREIGN KEY (reported_player) REFERENCES player(username) ON UPDATE CASCADE ON D
 
 
 
-
-
-
-
-
-
-
-
- 
 insert into game_participants (game_id,participant_id) VALUES ('60',43');
 
 insert into game (id, started_at, ended_at) VALUES ('1','today','yesterday');
  insert into participant (id, type, rank) VALUES ('16','player','30');
-
-
-
- 
 ```
 
 ## Problem 2 - Assorted Queries
 
 ```sqlite
--- 1.
--- Insert code here.
-
--- 2.
--- Insert code here.
-
--- 3.
--- Insert code here.
-
--- 4.
--- Insert code here.
-
--- 5.
--- Insert code here.
 ```
 
