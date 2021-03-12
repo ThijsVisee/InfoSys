@@ -8,7 +8,7 @@ Lazaros Kogioumtzidis - s4109651
 
 SELECT COUNT(id) AS CustomerCount 
 FROM customer 
-WHERE region = 'Western Europe' OR region = 'Eastern Europe';
+WHERE region LIKE '%Europe';
 
 -- 2.
 -- Insert code here.
