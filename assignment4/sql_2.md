@@ -6,12 +6,16 @@ Lazaros Kogioumtzidis - s4109651
 
 ## Problem 1 - Grouping and Aggregates
 
+-- 1.
 SELECT COUNT(id) AS CustomerCount 
 FROM customer 
 WHERE region LIKE '%Europe';
 
 -- 2.
--- Insert code here.
+SELECT Region, Count(ID)
+FROM Customer
+GROUP BY Region
+ORDER BY Region ASC;
 
 -- 3.
 -- Insert code here.
