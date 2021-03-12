@@ -2,8 +2,6 @@
 
 Use this markdown file to submit your prepared SQL statements for each problem.
 
-*Fill in your names and student numbers below:*
-
 ```
 Lazaros Kogioumtzidis - s4109651
 Thijs Visee - s2982129
@@ -11,7 +9,7 @@ Thijs Visee - s2982129
 
 ## Problem 1 - Schema Definition
 ```
-PRAGMA foreign_keys = ON; -- Foreign key constrains
+PRAGMA foreign_keys = ON; -- Foreign key constraints
 
 DROP TABLE IF EXISTS `reports`;
 DROP TABLE IF EXISTS `players`;
