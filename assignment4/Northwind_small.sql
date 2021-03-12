@@ -3458,3 +3458,7 @@ from [Product] p
 join [Category] c on p.CategoryId = c.id
 join [Supplier] s on s.id = p.SupplierId;
 COMMIT;
+
+SELECT COUNT(`id`) AS CustomerCount
+FROM Customer
+WHERE Region = `Western Europe` OR `region` = `Eastern Europe`;
