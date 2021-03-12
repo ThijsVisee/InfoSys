@@ -1,19 +1,14 @@
 # Information Systems - Advanced SQL
 
-Use this markdown file to submit your prepared SQL statements for each problem.
 
-*Fill in your names and student numbers below:*
+Lazaros Kogioumtzidis - s4109651
 
-```
-<student_1_name> - <student_1_s-number>
-<student_2_name> - <student_2_s-number>
-```
 
 ## Problem 1 - Grouping and Aggregates
 
-```sqlite
--- 1.
--- Insert code here.
+SELECT COUNT(id) AS CustomerCount 
+FROM customer 
+WHERE region = 'Western Europe' OR region = 'Eastern Europe';
 
 -- 2.
 -- Insert code here.
