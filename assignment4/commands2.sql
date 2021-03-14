@@ -36,3 +36,5 @@ INNER JOIN `Supplier` `s` ON `p`.`SupplierId` = `s`.`id`
 */
 
 -- 3.5 
+SELECT group_concat(`p`.`ProductName`, ", "), `c`.`CompanyName`
+INNER JOIN
