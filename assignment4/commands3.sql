@@ -27,6 +27,7 @@ WHERE `id` IN
 */
 
 -- 3.3
+/*
 SELECT `p`.`total_value`, `o`.*
 FROM
 (
@@ -37,3 +38,14 @@ FROM
 ) `p`
 INNER JOIN `Order` `o` ON `o`.`id` = `p`.`OrderId`
 ORDER BY `p`.`total_value` DESC;
+*/
+
+-- 3.4 digit = 9
+SELECT `ShipPostalCode`, *
+FROM `Order` 
+WHERE `CustomerId` IN
+(
+	SELECT `id`
+	FROM `Customer`
+	WHERE `PostalCode` LIKE "%9"
+);
