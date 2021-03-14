@@ -18,16 +18,30 @@ GROUP BY Region
 ORDER BY Region ASC;
 
 -- 3.
--- Insert code here.
+SELECT SupplierId, AVG(`UnitPrice`), COUNT(`ID`)
+FROM `Product`
+WHERE `Discontinued` IS 0
+GROUP BY `SupplierId`
+HAVING COUNT(ID) > 2
+ORDER BY `SupplierId`;
 
 -- 4.
--- Insert code here.
+SELECT group_concat(`FirstName`), `Country`
+FROM `Employee`
+GROUP BY Country;
+
 
 -- 5.
--- Insert code here.
+INSERT INTO CustomerDemographic(`Id`,`CustomerDesc`) SELECT `id`,printf("%s , %s , %s " ,`Customer`.`CompanyName`,`Customer`.`City`,`Customer`.`Country`)
+FROM `Customer`
+WHERE `fax` IS NOT NULL;
+
 
 -- 6.
--- Insert code here.
+INSERT INTO CustomerDemographic(`Id`,`CustomerDesc`)
+SELECT `id` ,printf("%s , %s , %s " ,`CompanyName`,`City`,`Country`)
+FROM `Customer`
+WHERE `fax` IS NOT NULL;
 
 ```
 
