@@ -18,6 +18,10 @@ GROUP BY `SupplierId`
 HAVING COUNT(ID) > 2
 ORDER BY `SupplierId`;
 
---
+-- 4
+SELECT group_concat(FirstName), Country
+FROM Employee
+GROUP BY Country;
+
 
 --5 

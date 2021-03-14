@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/kali/Documents/InfoSys/InfoSys/assignment4/test.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="0"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1843"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainbranch"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">DROP TABLE branch;
+DROP TABLE employee;
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  first_name TEXT,
+  last_name TEXT,
+  birth_day DATE,
+  sex CHAR,
+  salary INT,
+  super_id INT,
+  branch_id INT
+);
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name TEXT,
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+
+DROP TABLE employee;
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY,
+  first_name TEXT,
+  last_name TEXT,
+  birth_day DATE,
+  sex CHAR,
+  salary INT,
+  super_id INT,
+  branch_id INT,
+  FOREIGN KEY (branch_id)  REFERENCES branch(branch_id)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE client (
+  client_id INT PRIMARY KEY,
+  client_name TEXT,
+  branch_id INT,
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id) 
+  ON DELETE CASCADE
+  ON UPDATE CASCADE
+);
+
+CREATE TABLE works_with (
+ emp_id INT,
+ client_id INT,
+ total_sales INT,
+ PRIMARY KEY(emp_id, client_id),
+ FOREIGN KEY(emp_id) REFERENCES employee(emp_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE,
+ FOREIGN KEY(client_id) REFERENCES client(client_id)
+ ON UPDATE CASCADE
+ ON DELETE CASCADE
+);
+
+CREATE TABLE branch_supplier (
+  branch_id INT,
+  supplier_name TEXT,
+  supply_type TEXT,
+  PRIMARY KEY(branch_id, supplier_name),
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id)
+  ON UPDATE CASCADE
+  ON DELETE CASCADE
+);
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
