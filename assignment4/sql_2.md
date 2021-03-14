@@ -2,6 +2,7 @@
 
 
 Lazaros Kogioumtzidis - s4109651
+Thijs Visee - S2982129
 
 
 ## Problem 1 - Grouping and Aggregates
