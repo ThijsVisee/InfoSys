@@ -7,6 +7,7 @@ Thijs Visee - S2982129
 
 ## Problem 1 - Grouping and Aggregates
 
+```
 -- 1.
 SELECT COUNT(id) AS CustomerCount 
 FROM customer 
@@ -43,7 +44,6 @@ INSERT INTO CustomerDemographic(`Id`,`CustomerDesc`)
 SELECT `id` ,printf("%s , %s , %s " ,`CompanyName`,`City`,`Country`)
 FROM `Customer`
 WHERE `fax` IS NOT NULL;
-
 ```
 
 ## Problem 2 - Joins
@@ -87,8 +87,6 @@ WHERE `fax` IS NOT NULL;
     GROUP BY `c`.`id`
     ORDER BY `c`.`CompanyName` ASC;
 ```
-
-
 
 ## Problem 3 - Assorted Queries
 
