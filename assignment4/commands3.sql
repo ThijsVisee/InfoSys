@@ -1,5 +1,4 @@
 -- 3.1
-/*
 SELECT *
 FROM `Product`
 WHERE `Id` IN
@@ -10,10 +9,8 @@ WHERE `Id` IN
 	   OR `OrderId` = 10746
 	   OR `OrderId` = 11077
 );
-*/
 
 -- 3.2
-/*
 SELECT `FirstName`, `LastName`
 FROM `Employee`
 WHERE `id` IN
@@ -24,10 +21,8 @@ WHERE `id` IN
 	ORDER BY count(`EmployeeID`) DESC
 	LIMIT 5
 );
-*/
 
 -- 3.3
-/*
 SELECT `p`.`total_value`, `o`.*
 FROM
 (
@@ -38,7 +33,6 @@ FROM
 ) `p`
 INNER JOIN `Order` `o` ON `o`.`id` = `p`.`OrderId`
 ORDER BY `p`.`total_value` DESC;
-*/
 
 -- 3.4 digit = 9
 SELECT `ShipPostalCode`, *
