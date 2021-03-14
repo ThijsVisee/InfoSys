@@ -18,7 +18,9 @@ ORDER BY `p`.`ProductName` ASC;
 */
 			
 -- 2.3
-SELECT `s`.`CompanyName`, count(`s`.`id`)
+SELECT `s`.`CompanyName`
 FROM `Order` o
 INNER JOIN `Shipper` `s` ON `o`.`ShipVia` = `s`.`id`
-GROUP BY `s`.`id`;
+GROUP BY `o`.`ShipVia`
+ORDER BY count(`s`.`id`) DESC
+LIMIT 1;
