@@ -9,31 +9,31 @@ Thijs Visee - S2982129
 
 ```
 -- 1.
-SELECT COUNT(id) AS CustomerCount 
-FROM customer 
-WHERE region LIKE '%Europe' OR region = 'Scandinavia';
+SELECT Count(`id`) AS `CustomerCount `
+FROM `Customer`
+WHERE `Region` LIKE '%Europe' OR `Region` = 'Scandinavia';
 
 -- 2.
-SELECT Region, Count(ID)
-FROM Customer
-GROUP BY Region
-ORDER BY Region ASC;
+SELECT `Region`, Count(`id`)
+FROM `Customer`
+GROUP BY `Region`
+ORDER BY `Region` ASC;
 
 -- 3.
-SELECT SupplierId, AVG(`UnitPrice`), COUNT(`ID`)
+SELECT `SupplierId`, AVG(`UnitPrice`), COUNT(`id`)
 FROM `Product`
 WHERE `Discontinued` IS 0
 GROUP BY `SupplierId`
-HAVING COUNT(ID) > 2
+HAVING COUNT(`id`) > 2
 ORDER BY `SupplierId`;
 
 -- 4.
 SELECT group_concat(`FirstName`), `Country`
 FROM `Employee`
-GROUP BY Country;
+GROUP BY `Country`;
 
 -- 5.
-INSERT INTO CustomerDemographic(`Id`,`CustomerDesc`)
+INSERT INTO CustomerDemographic(`id`, `CustomerDesc`)
 SELECT `id`, printf("%s, %s, %s ", `Customer`.`CompanyName`, `Customer`.`City`, `Customer`.`Country`)
 FROM `Customer`
 WHERE `fax` IS NOT NULL;
@@ -75,7 +75,7 @@ LIMIT 1;
 SELECT `s`.`City`, `s`.`Country`, `p`.*
 FROM `Product` `p`
 INNER JOIN `Supplier` `s` ON `p`.`SupplierId` = `s`.`id`
-            AND `s`.`Fax` IS NOT NULL;
+                         AND `s`.`Fax` IS NOT NULL;
 
 -- 2.5 
 SELECT `c`.`CompanyName`, group_concat(`p`.`ProductName`, ", ")
@@ -98,8 +98,8 @@ WHERE `Id` IN
   SELECT `ProductId`
   FROM `OrderDetail`
   WHERE `OrderId` = 10256
-    OR `OrderId` = 10746
-    OR `OrderId` = 11077
+     OR `OrderId` = 10746
+     OR `OrderId` = 11077
 );
 
 -- 3.2
