@@ -33,13 +33,14 @@ FROM `Employee`
 GROUP BY `Country`;
 
 -- 5.
-INSERT INTO CustomerDemographic(`id`, `CustomerDesc`)
-SELECT `id`, printf("%s, %s, %s ", `Customer`.`CompanyName`, `Customer`.`City`, `Customer`.`Country`)
-FROM `Customer`
-WHERE `fax` IS NOT NULL;
+SELECT `OrderId`,
+       `SUM(`Quantity` * `UnitPrice`), 
+       `SUM(`Quantity` * `UnitPrice` * (1 - `Discount`))
+FROM `OrderDetail`
+GROUP BY `OrderId`;
 
 -- 6.
-INSERT INTO CustomerDemographic(`Id`,`CustomerDesc`)
+INSERT INTO CustomerDemographic(`id`,`CustomerDesc`)
 SELECT `id`, printf("%s, %s, %s ", `CompanyName`, `City`, `Country`)
 FROM `Customer`
 WHERE `fax` IS NOT NULL;
@@ -93,7 +94,7 @@ ORDER BY `c`.`CompanyName` ASC;
 -- 3.1
 SELECT *
 FROM `Product`
-WHERE `Id` IN
+WHERE `id` IN
 (
   SELECT `ProductId`
   FROM `OrderDetail`
